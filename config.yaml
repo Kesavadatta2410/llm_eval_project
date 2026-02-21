@@ -1,0 +1,33 @@
+# ─── Global Configuration ───────────────────────────────────────────────────
+project:
+  name: "LLM Stress-Testing & Responsible AI Evaluation"
+  seed: 42
+  max_examples_per_dataset: 100
+
+models:
+  gpt2:
+    hf_id: "gpt2"
+    type: "causal"
+    description: "GPT-2 (124M) — small baseline"
+  llama3:
+    hf_id: "meta-llama/Meta-Llama-3-8B-Instruct"
+    type: "causal"
+    description: "LLaMA-3 8B Instruct — large open-weight"
+  flan_t5:
+    hf_id: "google/flan-t5-large"
+    type: "seq2seq"
+    description: "FLAN-T5-Large (780M) — instruction-tuned"
+
+generation:
+  temperature: 0.7
+  top_p: 0.9
+  max_new_tokens: 512
+  do_sample: true
+
+quantization:
+  use_8bit: true
+  fallback_dtype: "float16"
+
+bigbench:
+  base_url: "https://raw.githubusercontent.com/google/BIG-bench/main/bigbench/benchmark_tasks/{task_name}/task.json"
+  cache_dir: "data/bigbench/.cache"
