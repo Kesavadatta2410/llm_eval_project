@@ -18,13 +18,19 @@ class GPT2Wrapper(BaseModel):
         if self.tokenizer.pad_token is None:
             self.tokenizer.pad_token = self.tokenizer.eos_token
 
-        self.model = AutoModelForCausalLM.from_pretrained(self.hf_id)
+        # attn_implementation="eager" avoids the SDPA padding-mask CUDA
+        # assertion error (srcIndex < srcSelectDimSize) seen in newer
+        # transformers versions when input_ids are padded.
+        self.model = AutoModelForCausalLM.from_pretrained(
+            self.hf_id, attn_implementation="eager"
+        )
         self.model = self.model.to(self.device)
 
     @torch.no_grad()
     def generate(self, prompt: str) -> str:
+        # max_length=512 keeps well within GPT-2's 1024-token positional limit
         inputs = self.tokenizer(
-            prompt, return_tensors="pt", truncation=True, max_length=1024
+            prompt, return_tensors="pt", truncation=True, max_length=512
         ).to(self.device)
 
         output_ids = self.model.generate(

@@ -15,13 +15,21 @@ class FlanT5Wrapper(BaseModel):
 
     def _load_model(self):
         self.tokenizer = AutoTokenizer.from_pretrained(self.hf_id)
-        self.model = AutoModelForSeq2SeqLM.from_pretrained(self.hf_id)
+        # Load in float16 to halve VRAM (~1.6 GB vs ~3.1 GB in float32)
+        self.model = AutoModelForSeq2SeqLM.from_pretrained(
+            self.hf_id, dtype=torch.float16
+        )
         self.model = self.model.to(self.device)
 
     @torch.no_grad()
     def generate(self, prompt: str) -> str:
+        # Clear any stale VRAM before each call
+        if "cuda" in str(self.device):
+            torch.cuda.empty_cache()
+
+        # 384 tokens keeps cross-attention activations manageable on 6 GB VRAM
         inputs = self.tokenizer(
-            prompt, return_tensors="pt", truncation=True, max_length=1024
+            prompt, return_tensors="pt", truncation=True, max_length=384
         ).to(self.device)
 
         output_ids = self.model.generate(

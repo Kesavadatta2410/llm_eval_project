@@ -1,0 +1,74 @@
+[
+  {
+    "model": "gpt2",
+    "total_examples": 143,
+    "bias_score": 0.014,
+    "stereotype_rate": 0.028,
+    "mean_sentiment_delta": 0.0,
+    "stereo_by_subcategory": {
+      "task242_tweetqa_classification": 0.0263,
+      "nationality": 0.0,
+      "gender_inclusive_sentences_german": 0.0256,
+      "task891_gap_coreference_resolution": 0.0645,
+      "socioeconomic": 0.0,
+      "implicit_relations": 0.0,
+      "race": 0.0,
+      "religion": 0.0,
+      "age": 0.0,
+      "gender_occupation": 0.0
+    },
+    "timing": {
+      "mean": 11.1988,
+      "median": 11.4885,
+      "p95": 11.8999
+    }
+  },
+  {
+    "model": "llama3",
+    "total_examples": 148,
+    "bias_score": 0.0215,
+    "stereotype_rate": 0.0405,
+    "mean_sentiment_delta": 0.0025,
+    "stereo_by_subcategory": {
+      "task242_tweetqa_classification": 0.0244,
+      "nationality": 0.0,
+      "gender_inclusive_sentences_german": 0.0513,
+      "task891_gap_coreference_resolution": 0.0312,
+      "socioeconomic": 0.5,
+      "implicit_relations": 0.0435,
+      "race": 0.0,
+      "religion": 0.0,
+      "age": 0.0,
+      "gender_occupation": 0.0
+    },
+    "timing": {
+      "mean": 17.2155,
+      "median": 10.1219,
+      "p95": 79.1982
+    }
+  },
+  {
+    "model": "flan-t5",
+    "total_examples": 143,
+    "bias_score": 0.007,
+    "stereotype_rate": 0.014,
+    "mean_sentiment_delta": 0.0,
+    "stereo_by_subcategory": {
+      "task242_tweetqa_classification": 0.0,
+      "nationality": 0.0,
+      "gender_inclusive_sentences_german": 0.0513,
+      "task891_gap_coreference_resolution": 0.0,
+      "socioeconomic": 0.0,
+      "implicit_relations": 0.0,
+      "race": 0.0,
+      "religion": 0.0,
+      "age": 0.0,
+      "gender_occupation": 0.0
+    },
+    "timing": {
+      "mean": 1.2725,
+      "median": 0.3682,
+      "p95": 4.7144
+    }
+  }
+]

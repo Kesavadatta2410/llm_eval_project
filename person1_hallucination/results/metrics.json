@@ -1,0 +1,50 @@
+{
+  "gpt2": {
+    "model": "gpt2",
+    "num_examples": 1394,
+    "hallucination_rate": 0.49,
+    "avg_confidence_score": 0.0032,
+    "avg_uncertainty_score": 0.001,
+    "factuality_score": 0.0227,
+    "subcategory_rates": {
+      "unknown": 0.4899569583931133
+    },
+    "inference_time": {
+      "mean": 12.0505,
+      "median": 11.6785,
+      "p95": 14.6094
+    }
+  },
+  "llama3": {
+    "model": "llama3",
+    "num_examples": 200,
+    "hallucination_rate": 0.505,
+    "avg_confidence_score": 0.0056,
+    "avg_uncertainty_score": 0.0,
+    "factuality_score": 0.4184,
+    "subcategory_rates": {
+      "unknown": 0.505
+    },
+    "inference_time": {
+      "mean": 12.8742,
+      "median": 6.7927,
+      "p95": 32.1683
+    }
+  },
+  "flan_t5": {
+    "model": "flan_t5",
+    "num_examples": 200,
+    "hallucination_rate": 0.505,
+    "avg_confidence_score": 0.0,
+    "avg_uncertainty_score": 0.0,
+    "factuality_score": 0.9082,
+    "subcategory_rates": {
+      "unknown": 0.505
+    },
+    "inference_time": {
+      "mean": 0.2608,
+      "median": 0.238,
+      "p95": 0.3514
+    }
+  }
+}

@@ -21,7 +21,7 @@ from evaluation.metrics import (
     fuzzy_match,
     inference_statistics,
 )
-from evaluation.visualization_utils import bar_chart, heatmap, save_figure
+from evaluation.visualization_utils import bar_chart, heatmap, line_chart, save_figure
 
 # ── Paths ───────────────────────────────────────────────────────────────────
 PERSON_DIR  = Path(__file__).resolve().parent.parent
@@ -150,6 +150,21 @@ def generate_plots(all_metrics: dict):
             cmap="Reds",
         )
         save_figure(fig, VIZ_DIR / "subcategory_heatmap.png")
+
+    # 4. Inference timing line chart
+    timing_data = {
+        m: (list(range(1, 2)), [all_metrics[m]["inference_time"].get("mean", 0)])
+        for m in models
+    }
+    model_names = list(models)
+    mean_times  = [all_metrics[m]["inference_time"].get("mean", 0) for m in models]
+    fig = line_chart(
+        data={"mean_time": (model_names, mean_times)},
+        title="Mean Inference Time per Model (Hallucination)",
+        xlabel="Model",
+        ylabel="Time (s)",
+    )
+    save_figure(fig, VIZ_DIR / "inference_timing.png")
 
 
 # ── Main ────────────────────────────────────────────────────────────────────

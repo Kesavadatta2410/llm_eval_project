@@ -10,9 +10,9 @@ models:
     type: "causal"
     description: "GPT-2 (124M) — small baseline"
   llama3:
-    hf_id: "meta-llama/Meta-Llama-3-8B-Instruct"
+    hf_id: "TinyLlama/TinyLlama-1.1B-Chat-v1.0"
     type: "causal"
-    description: "LLaMA-3 8B Instruct — large open-weight"
+    description: "TinyLlama-1.1B-Chat (1.1B) — lightweight, no quantization needed"
   flan_t5:
     hf_id: "google/flan-t5-large"
     type: "seq2seq"
@@ -25,7 +25,7 @@ generation:
   do_sample: true
 
 quantization:
-  use_8bit: true
+  use_8bit: false
   fallback_dtype: "float16"
 
 bigbench:

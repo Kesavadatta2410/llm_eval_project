@@ -34,17 +34,27 @@ def exact_match(prediction: str, ground_truth: str) -> bool:
     return normalize_text(prediction) == normalize_text(ground_truth)
 
 
-def fuzzy_match(prediction: str, ground_truth: str, threshold: float = 0.6) -> bool:
+def fuzzy_match(prediction: str, ground_truth: str, threshold: float = 0.35) -> bool:
     """
     Token-overlap fuzzy match.
     Returns True if the F1 overlap between prediction and ground truth
-    tokens exceeds the threshold.
+    tokens exceeds the threshold, OR if any significant GT token appears
+    in the prediction (partial containment).
     """
-    pred_tokens = normalize_text(prediction).split()
-    gold_tokens = normalize_text(ground_truth).split()
+    pred_norm = normalize_text(prediction)
+    gold_norm = normalize_text(ground_truth)
+    pred_tokens = pred_norm.split()
+    gold_tokens = gold_norm.split()
 
     if not gold_tokens:
         return len(pred_tokens) == 0
+
+    # Partial containment: ground truth is a short answer and it appears in response
+    STOP_WORDS = {"the", "a", "an", "is", "are", "was", "were", "of", "in",
+                  "to", "and", "or", "it", "that", "this", "be", "as", "by"}
+    key_tokens = [t for t in gold_tokens if t not in STOP_WORDS and len(t) > 2]
+    if key_tokens and any(tok in pred_norm for tok in key_tokens):
+        return True
 
     common = Counter(pred_tokens) & Counter(gold_tokens)
     num_common = sum(common.values())

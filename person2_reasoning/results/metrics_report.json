@@ -1,0 +1,50 @@
+[
+  {
+    "model": "gpt2",
+    "total_examples": 200,
+    "correct": 84,
+    "accuracy": 0.42,
+    "sub_accuracy": {
+      "paraphrase_reasoning": 0.6774,
+      "word_sorting": 0.3367,
+      "text_classification": 0.225
+    },
+    "timing": {
+      "mean": 11.7812,
+      "median": 11.867,
+      "p95": 12.1889
+    }
+  },
+  {
+    "model": "llama3",
+    "total_examples": 235,
+    "correct": 124,
+    "accuracy": 0.5277,
+    "sub_accuracy": {
+      "paraphrase_reasoning": 0.9859,
+      "word_sorting": 0.287,
+      "text_classification": 0.4286
+    },
+    "timing": {
+      "mean": 13.8026,
+      "median": 15.7944,
+      "p95": 26.6508
+    }
+  },
+  {
+    "model": "flan-t5",
+    "total_examples": 424,
+    "correct": 359,
+    "accuracy": 0.8467,
+    "sub_accuracy": {
+      "paraphrase_reasoning": 1.0,
+      "word_sorting": 0.8594,
+      "text_classification": 0.6415
+    },
+    "timing": {
+      "mean": 1.2928,
+      "median": 0.9926,
+      "p95": 3.239
+    }
+  }
+]

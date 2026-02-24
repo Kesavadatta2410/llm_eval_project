@@ -1,0 +1,65 @@
+[
+  {
+    "model": "gpt2",
+    "total_examples": 400,
+    "clarification_rate": 0.0,
+    "disambiguation_success": 0.3,
+    "sub_clarification": {
+      "winowhy": 0.0372,
+      "disambiguation_qa": 0.0312,
+      "task677_ollie_sentence_answer_generation": 0.0
+    },
+    "sub_disambiguation": {
+      "winowhy": 0.3352,
+      "disambiguation_qa": 0.0938,
+      "task677_ollie_sentence_answer_generation": 0.0
+    },
+    "timing": {
+      "mean": 12.0404,
+      "median": 12.0568,
+      "p95": 14.209
+    }
+  },
+  {
+    "model": "llama3",
+    "total_examples": 200,
+    "clarification_rate": 0.0,
+    "disambiguation_success": 0.505,
+    "sub_clarification": {
+      "winowhy": 0.0169,
+      "disambiguation_qa": 0.0,
+      "task677_ollie_sentence_answer_generation": 0.0
+    },
+    "sub_disambiguation": {
+      "winowhy": 0.5562,
+      "disambiguation_qa": 0.1429,
+      "task677_ollie_sentence_answer_generation": 0.125
+    },
+    "timing": {
+      "mean": 9.6919,
+      "median": 9.5875,
+      "p95": 15.8898
+    }
+  },
+  {
+    "model": "flan-t5",
+    "total_examples": 200,
+    "clarification_rate": 0.0,
+    "disambiguation_success": 0.045,
+    "sub_clarification": {
+      "winowhy": 0.0,
+      "disambiguation_qa": 0.0,
+      "task677_ollie_sentence_answer_generation": 0.0
+    },
+    "sub_disambiguation": {
+      "winowhy": 0.0506,
+      "disambiguation_qa": 0.0,
+      "task677_ollie_sentence_answer_generation": 0.0
+    },
+    "timing": {
+      "mean": 0.8786,
+      "median": 0.692,
+      "p95": 2.2314
+    }
+  }
+]

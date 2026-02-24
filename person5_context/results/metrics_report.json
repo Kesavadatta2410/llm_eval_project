@@ -1,0 +1,74 @@
+[
+  {
+    "model": "gpt2",
+    "total_examples": 111,
+    "retrieval_accuracy": 0.0991,
+    "acc_by_length": {
+      "256": 0.0349,
+      "512": 0.6667,
+      "1024": 0.4,
+      "2048": 0.0,
+      "4096": 0.1818
+    },
+    "acc_by_position": {
+      "middle": 0.4,
+      "beginning": 0.0,
+      "unknown": 0.0125,
+      "end": 0.5
+    },
+    "degradation_slope": -5.5e-05,
+    "timing": {
+      "mean": 14.4306,
+      "median": 14.6035,
+      "p95": 15.0173
+    }
+  },
+  {
+    "model": "llama3",
+    "total_examples": 61,
+    "retrieval_accuracy": 0.5902,
+    "acc_by_length": {
+      "256": 0.6383,
+      "512": 1.0,
+      "1024": 1.0,
+      "2048": 0.0,
+      "4096": 0.0
+    },
+    "acc_by_position": {
+      "middle": 0.6667,
+      "beginning": 0.4,
+      "unknown": 0.6136,
+      "end": 0.5
+    },
+    "degradation_slope": -0.000255,
+    "timing": {
+      "mean": 22.601,
+      "median": 13.8291,
+      "p95": 66.9571
+    }
+  },
+  {
+    "model": "flan-t5",
+    "total_examples": 61,
+    "retrieval_accuracy": 0.3934,
+    "acc_by_length": {
+      "256": 0.4894,
+      "512": 0.3333,
+      "1024": 0.0,
+      "2048": 0.0,
+      "4096": 0.0
+    },
+    "acc_by_position": {
+      "middle": 0.0,
+      "beginning": 0.2,
+      "unknown": 0.5227,
+      "end": 0.0
+    },
+    "degradation_slope": -0.000104,
+    "timing": {
+      "mean": 0.8993,
+      "median": 0.3705,
+      "p95": 2.5238
+    }
+  }
+]
